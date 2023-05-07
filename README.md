@@ -1,7 +1,8 @@
 # Lab 5 - Starter
-Team 18 - Lab Partners:
-Fangyu Zhu
-Jessie Ouyang
-This is our Expose page
+1. Team 18 - Lab Partners:
+Fangyu Zhu and Jessie Ouyang
+2. This is link to our [Expose page]()
+3. This is link to our [Explore page]()
+4. This is link to [Continuous Integration page]()
 
 
