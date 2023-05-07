@@ -3,16 +3,15 @@
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
-
   /*
     When you select a horn from the drop down menu, the following should occur:
     The correct image should display
     The correct audio sound file should be set
   */
-  // Get references to the dropdown, image and audio elements
+  // Get references to the dropdown menu choices, including selections, images, and audios elements
   const hornSelect = document.getElementById("horn-select");
   const hornImage = document.querySelector("#expose img");
-  const hornAudio = document.getElementsByClassName("hidden");
+  const hornAudio = document.querySelector("audio");
 
   // Define the image files for each horn
   const hornImages = {
@@ -44,7 +43,7 @@ function init() {
     The correct volume icon should be set
     The corresponding volume should be set for the audio element (note: this element’s volume is not out of 100)
   */
-  // Get references to the slider and icon elements
+  // Get references to the slider value and icon elements
   const volumeSlider = document.getElementById("volume");
   const volumeIcon = document.querySelector("[src='assets/icons/volume-level-2.svg']");
 
@@ -56,17 +55,11 @@ function init() {
     "volume-level-3": "assets/icons/volume-level-3.svg",
   };
 
-  // Define the volume levels for each volume range when sliding the volume
-  const volumeLevels = {
-    "volume-level-0": 0,
-    "volume-level-1": 0.33,
-    "volume-level-2": 0.67,
-    "volume-level-3": 1,
-  };
-
-  // Add an event listener to the slider to change the icon based on different levels and set the volume for the audio volume when the value changes
+  // Add an event listener to the slider to change the icon images based on different
+  // levels and set the volume for the audio volume when the value changes by dividing 100
   volumeSlider.addEventListener("input", function() {
     const volumeSliderValue = volumeSlider.value; // Get the value of the slider
+    hornAudio.volume = volumeSliderValue / 100;
     let volumeLevel;
 
     // Determine the volume level based on the slider value
@@ -82,10 +75,6 @@ function init() {
 
     // Set the volume icon source based on the volume level categorized at above step
     volumeIcon.src = volumeIcons[volumeLevel];
-
-    // Set the volume of the audio element based on the volume level
-    const audioVolume = volumeLevels[volumeLevel];
-    hornAudio.volume = audioVolume;
   });
 
 
@@ -97,15 +86,12 @@ function init() {
   const button = document.querySelector("button");
   const jsConfetti = new JSConfetti();
 
-  button.addEventListener('click', function() {
-    hornAudio.play(); //play the audio
-
-    //const selectedHorn = hornSelect.value;
-    if (hornSelect.value === "party-horn"){
+  button.addEventListener("click", function() {
+    hornAudio.play();
+    if (hornSelect.value === "party-horn") {
       jsConfetti.addConfetti();
     }
-  })
-
+  });
 }
 
 
