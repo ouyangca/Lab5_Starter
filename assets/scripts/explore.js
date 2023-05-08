@@ -15,7 +15,8 @@ function init() {
   const voiceSelect = document.getElementById("voice-select");
   let voices = [];
 
-  synth.addEventListener("voiceschanged", function() {
+  //synth.addEventListener("voiceschanged", function() {
+  function populateVoiceList() {
     // access all the voices list to populate all the voices in the list to dropdown menu
     voices = synth.getVoices();
 
@@ -33,14 +34,14 @@ function init() {
       option.setAttribute("data-name", voices[i].name);
       voiceSelect.appendChild(option);
     }
-  });
+  }
 
+  populateVoiceList();
   /* When you click the “Press to Talk” button, the following should happen:
      The text that you have typed into the “Text to speak here” textarea should 
      be spoken out loud using the voice that you have selected.
      Only while the synthesizer is speaking, the face should swap to being open mouthed (included in the images folder)
   */
-
   if (speechSynthesis.onvoiceschanged !== undefined) {
     speechSynthesis.onvoiceschanged = populateVoiceList;
   }
