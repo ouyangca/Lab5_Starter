@@ -3,6 +3,6 @@
 Fangyu Zhu and Jessie Ouyang
 2. This is link to our [Expose page]()
 3. This is link to our [Explore page]()
-4. This is link to [Continuous Integration page](https://github.com/ouyangca/introduction-to-github)
+4. This is link to [Continuous Integration introduction-to-github repo](https://github.com/ouyangca/introduction-to-github)
 
 
