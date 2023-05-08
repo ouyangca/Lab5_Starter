@@ -4,9 +4,9 @@ window.addEventListener('DOMContentLoaded', init);
 
 function init() {
   /*
-  Requirements:
-  On page load, all of the available voices that you can use for your SpeechSynthesizer should be 
-  loaded and populate the “Select Voice” dropdown.
+   Requirements:
+   On page load, all of the available voices that you can use for your SpeechSynthesizer should be 
+   loaded and populate the “Select Voice” dropdown.
   */
 
   // Initialize the SpeechSynthesis object
@@ -15,7 +15,6 @@ function init() {
   const voiceSelect = document.getElementById("voice-select");
   let voices = [];
 
-  //synth.addEventListener("voiceschanged", function() {
   function populateVoiceList() {
     // access all the voices list to populate all the voices in the list to dropdown menu
     voices = synth.getVoices();
@@ -45,7 +44,7 @@ function init() {
   if (speechSynthesis.onvoiceschanged !== undefined) {
     speechSynthesis.onvoiceschanged = populateVoiceList;
   }
-    
+  
   // Get the DOM elements for the "Press to Talk" button，smile face image, and text area, 
   const button = document.querySelector("button");
   const smileImage = document.querySelector("img");
